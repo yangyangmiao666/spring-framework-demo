@@ -30,7 +30,7 @@
     </scm>
 
     <modules>
-        <module>spring-data-jdbc-demo</module>
+        <module>spring-data-jpa-demo</module>
     </modules>
 
     <properties>

@@ -1,4 +1,4 @@
-package com.ustc.myy.springdatajdbcdemo;
+package com.ustc.myy.springdatajpademo;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
