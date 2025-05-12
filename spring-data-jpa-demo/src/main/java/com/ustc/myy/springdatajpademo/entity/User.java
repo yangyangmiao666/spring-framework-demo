@@ -5,6 +5,9 @@ import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import org.springframework.data.annotation.CreatedDate;
+import org.springframework.data.annotation.LastModifiedDate;
+import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 import org.springframework.format.annotation.DateTimeFormat;
 
 import java.io.Serial;
@@ -30,6 +33,7 @@ import java.time.LocalDateTime;
 }, indexes = {
         @Index(name = "idx_create_time", columnList = "create_time")
 })
+@EntityListeners(AuditingEntityListener.class)  // 使用监听器
 public class User implements Serializable {
 
     @Serial
@@ -51,6 +55,7 @@ public class User implements Serializable {
 
     @Column(name = "registration_date")
     @DateTimeFormat(pattern = "yyyy-MM-dd HH:mm:ss")
+    @CreatedDate
     private LocalDateTime registrationDate;
 
     @Column(name = "last_login")
@@ -59,10 +64,12 @@ public class User implements Serializable {
 
     @Column(name = "create_time")
     @DateTimeFormat(pattern = "yyyy-MM-dd HH:mm:ss")
+    @CreatedDate
     private LocalDateTime createTime;
 
     @Column(name = "update_time")
     @DateTimeFormat(pattern = "yyyy-MM-dd HH:mm:ss")
+    @LastModifiedDate
     private LocalDateTime updateTime;
 
     @Column(name = "active")
